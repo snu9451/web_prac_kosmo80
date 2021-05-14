@@ -29,4 +29,28 @@ public class Sonata {
 	public String toString() {
 		return "자동차 정보 출력하기 ===> 색상: "+color+", 바퀴 수: "+wheel+", 속력: "+speed;
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getWheel() {
+		return wheel;
+	}
+
+	public void setWheel(int wheel) {
+		this.wheel = wheel;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
 }

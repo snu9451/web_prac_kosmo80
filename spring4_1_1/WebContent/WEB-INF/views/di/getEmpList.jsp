@@ -3,11 +3,21 @@
 <%@ page import="java.util.*" %>
 <%
 	// SSR과 CSR이 공존
+	// 서블릿에서 EmpLogic.java -> EmpDao.java -> List<Map>
+	// mav.addObject("empList", empList);
+	// request.setAttribute("empList", empList);
+	// 이러한 방식이 [forward]방식이다.
 	List<Map<String, Object>> empList = (List<Map<String, Object>>)request.getAttribute("empList");
-	for(Map<String, Object> map : empList){
+	out.println(empList);
+	int size=0;
+	if(empList!=null){
+		size = empList.size();
+	}
+	out.print("size: "+size);
+	/* or(Map<String, Object> map : empList){
 		
 		out.println()
-	}
+	} */
 %>
 <!DOCTYPE html>
 <html>

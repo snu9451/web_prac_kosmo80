@@ -10,7 +10,8 @@ import org.springframework.web.servlet.mvc.AbstractController;
 public class HelloController extends AbstractController {
 	Logger logger = Logger.getLogger(HelloController.class);
 	@Override
-	protected ModelAndView handlerRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	protected ModelAndView handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
+		// TODO Auto-generated method stub
 		logger.info("haldlerRequestInternal 호출 성공");
 		return null;
 	}

@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 public class EmpController extends MultiActionController {
 	Logger logger = Logger.getLogger(EmpController.class);
+	// 인스턴스화 직접(new)하지 않는다!
+	private EmpLogic empLogic = null;
 	public ModelAndView getEmpList(HttpServletRequest req
 								 , HttpServletResponse res) {
 		logger.info("getEmpList 호출 성공");
@@ -27,6 +29,7 @@ public class EmpController extends MultiActionController {
 		List<Map<String, Object>> empList = new ArrayList<>();
 		Map<String, Object> rmap = new HashMap<>();
 		rmap.put("mem_name", "이순신장군");
+		empList.add(rmap);
 		// ModelAndView는 scope 속성이 request이다.
 		mav.addObject("empList", empList);
 		mav.setViewName("di/getEmpList");
@@ -40,5 +43,11 @@ public class EmpController extends MultiActionController {
 	{
 		logger.info("empInsert 호출 성공");
 		res.sendRedirect("/di/empInsertOk.jsp");
+	}
+	public EmpLogic getEmpLogic() {
+		return empLogic;
+	}
+	public void setEmpLogic(EmpLogic empLogic) {
+		this.empLogic = empLogic;
 	}
 }

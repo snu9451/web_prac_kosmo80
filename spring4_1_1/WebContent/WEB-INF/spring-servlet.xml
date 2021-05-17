@@ -6,7 +6,7 @@
 	<bean name="/di/hello.sp4" class="kosmo80.mvc.sp4.HelloController"/>
 	<bean id="emp-controller" class="kosmo80.mvc.sp4.EmpController">
 		<property name="methodNameResolver" ref="emp-resolver"/>
-		<property name="empLogic" ref="emp-Logic"/>
+		<property name="empLogic" ref="emp-logic"/>
 	</bean>
 	<bean id="url-mapping"
 	class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -16,7 +16,7 @@
 				<prop key="/di/getEmpList.sp4">emp-controller</prop>
 				<prop key="/di/empInsert.sp4">emp-controller</prop>
 				<prop key="/di/empUpdate.sp4">emp-controller</prop>
-				<prop key="/di/empDelete.sp4">emp-controller</prop>
+				<prop key="/di/empDelete.sp4">emp-controller</prop> 
 			</props>
 		</property>
 	</bean>

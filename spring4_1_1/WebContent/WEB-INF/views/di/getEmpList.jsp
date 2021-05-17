@@ -27,6 +27,7 @@
 </head>
 <body>
 	empList 출력<br>
-	사원 목록 페이지입니다.
+	사원 목록 페이지입니다.<br>
+	${empList.toString()}
 </body>
 </html>

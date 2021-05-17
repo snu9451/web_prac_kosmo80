@@ -16,9 +16,18 @@ public class EmpController extends MultiActionController {
 	Logger logger = Logger.getLogger(EmpController.class);
 	// 인스턴스화 직접(new)하지 않는다!
 	private EmpLogic empLogic = null;
+	
+	public EmpController() {
+		System.out.println("디폴트 생성자 호출됨");
+	}
+	
+	// setter 객체 주입법 코드임.
+	public void setEmpLogic(EmpLogic empLogic) {
+		this.empLogic = empLogic;
+	}
 	public ModelAndView getEmpList(HttpServletRequest req
 								 , HttpServletResponse res) {
-		logger.info("getEmpList 호출 성공");
+		logger.info("EmpController - getEmpList 호출 성공");
 		ModelAndView mav = new ModelAndView();
 		/*
 		<property name="prefix" value="/WEB-INF/views/"/>
@@ -30,7 +39,9 @@ public class EmpController extends MultiActionController {
 		Map<String, Object> rmap = new HashMap<>();
 		rmap.put("mem_name", "이순신장군");
 		empList.add(rmap);
-		// ModelAndView는 scope 속성이 request이다.
+		// 여기서 NPE(NullPointerException)이 발생하지 않는다.
+//		empList = empLogic.getEmpList();
+		// ModelAndView는 scope scope 속성이 request이다.
 		mav.addObject("empList", empList);
 		mav.setViewName("di/getEmpList");
 		return mav;
@@ -46,8 +57,5 @@ public class EmpController extends MultiActionController {
 	}
 	public EmpLogic getEmpLogic() {
 		return empLogic;
-	}
-	public void setEmpLogic(EmpLogic empLogic) {
-		this.empLogic = empLogic;
 	}
 }

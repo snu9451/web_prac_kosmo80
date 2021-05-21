@@ -20,7 +20,7 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="emp-resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+	<bean id="emp-resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">  
 		<!-- 의존성 객체 주입 -->
 		<property name="mappings">
 			<props>

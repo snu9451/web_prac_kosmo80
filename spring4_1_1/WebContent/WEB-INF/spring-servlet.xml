@@ -8,11 +8,16 @@
 		<property name="methodNameResolver" ref="emp-resolver"/>
 		<property name="empLogic" ref="emp-logic"/>
 	</bean>
+	<bean id="board-controller" class="web.mvc.Board41Controller">
+		<property name="methodNameResolver" ref="board-resolver"/>
+		<property name="boardLogic" ref="board-logic"/>
+	</bean>
 	<bean id="url-mapping"
 	class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<!-- 약속된 setter이므로 이름 변경하면 안 됨 -->
 		<property name="mappings">
 			<props>
+				<prop key="/board/getBoardList.sp4">board-controller</prop>
 				<prop key="/di/getEmpList.sp4">emp-controller</prop>
 				<prop key="/di/empInsert.sp4">emp-controller</prop>
 				<prop key="/di/empUpdate.sp4">emp-controller</prop>
@@ -27,7 +32,16 @@
 				<prop key="/di/getEmpList.sp4">getEmpList</prop>
 				<prop key="/di/empInsert.sp4">empInsert</prop>
 				<prop key="/di/empUpdate.sp4">empUpdate</prop>
-				<prop key="/di/empDelete.sp4">empDelete</prop>
+				<prop key="/di/empDelete.sp4">empDelete</prop> 
+				
+			</props>
+		</property>
+	</bean>
+	<bean id="board-resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">  
+		<!-- 의존성 객체 주입 -->
+		<property name="mappings">
+			<props>
+				<prop key="/board/getBoardList.sp4">getBoardList</prop>
 			</props>
 		</property>
 	</bean>

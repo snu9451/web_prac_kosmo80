@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>사원 목록 페이지</title>
+</head>
+<body>
+	empList 출력<br>
+	사원 목록 페이지입니다.<br>
 <%
 	// SSR과 CSR이 공존
 	// 서블릿에서 EmpLogic.java -> EmpDao.java -> List<Map>
@@ -13,21 +22,11 @@
 	if(empList!=null){
 		size = empList.size();
 	}
-	out.print("size: "+size);
 	/* or(Map<String, Object> map : empList){
 		
 		out.println()
 	} */
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>사원 목록 페이지</title>
-</head>
-<body>
-	empList 출력<br>
-	사원 목록 페이지입니다.<br>
 	${empList.toString()}
 </body>
 </html>

@@ -20,7 +20,7 @@ public class EmpController extends MultiActionController {
 	public EmpController() {
 		System.out.println("디폴트 생성자 호출됨");
 	}
-	
+
 	// setter 객체 주입법 코드임.
 	public void setEmpLogic(EmpLogic empLogic) {
 		this.empLogic = empLogic;

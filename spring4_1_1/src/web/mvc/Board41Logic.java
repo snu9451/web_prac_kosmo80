@@ -18,6 +18,19 @@ public class Board41Logic {
 		return boardList;
 	}
 
+	// 정수를 반환함. 처리 실패 혹은 성공으로 나뉘므로...
+	public int boardInsert(Map<String, Object> pmap) {
+		logger.info("boardInsert 호출 성공");
+		int result = 0;
+		int fileOk = 0;
+		result = bmDao.boardMInsert(pmap);
+		// 첨부파일이 있어?
+		if(pmap.containsKey("bs_file")) {
+			fileOk = bsDao.boardSInsert(pmap);
+		}
+		return result;
+	}
+	
 	public void setBmDao(Board41MDao bmDao) {
 		this.bmDao = bmDao;
 	}

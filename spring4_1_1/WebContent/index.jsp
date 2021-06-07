@@ -6,7 +6,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body>
+<body>202
 	Spring v4.x 테스트 성공
 </body>
 </html>

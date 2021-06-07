@@ -31,4 +31,11 @@ public class Board41MDao {
 		return boardList;
 //		return bmVO;
 	}
+
+	public int boardMInsert(Map<String, Object> pmap) {
+		int result = 0;
+		// MN: insert 후 곧바로 (정수 타입의) 결과를 반환받음
+		result = sqlSessionTemplate.insert("boardInsert", pmap);
+		return result;
+	}
 }

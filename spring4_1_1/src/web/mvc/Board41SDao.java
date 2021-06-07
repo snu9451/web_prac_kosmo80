@@ -26,4 +26,9 @@ public class Board41SDao {
 		
 		return boardList;
 	}
+
+	public int boardSInsert(Map<String, Object> pmap) {
+		int result = 0;
+		return result;
+	}
 }

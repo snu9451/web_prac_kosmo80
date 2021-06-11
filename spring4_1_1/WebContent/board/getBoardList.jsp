@@ -46,18 +46,24 @@
 			iconCls:'icon-remove',
 			handler: function(e){
 				$(e.data.target).textbox('clear');
-			}
+}
 		}]
-	})
-	
-	$('.easyui-linkbutton').on('click', ()=>{
-		$('#tb_form').submit();
 	});
-  
+// 	$('#tb_form').form({
+//     success:function(data){
+//         $.messager.alert('Info', data, 'info');
+//     }
+// 	    url: "./boardInsert.sp4"
+	
+// 	});
+// 	$('#tb_form').form('submit',{
+// 	});
+// 	$('.easyui-linkbutton').attr('href','./boardInsert.sp4');
+		
 </script>
 </head>
 <body>
-<table id="dg_board" class="easyui-datagrid" data-options="title:'게시판 webapp'" style="width:500px;height:350px">
+<table id="dg_board" class="easyui-datagrid" data-options="title:'게시판 webapp'" style="width:1000px;height:350px">
     <thead>
         <tr>
             <th data-options="field:'BM_NO'">글번호</th>
@@ -75,12 +81,13 @@
         <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">삭제</a>
     </div>
     <!-- ------------------------------------[[ 글쓰기 화면 시작 ]]--------------------------------------------- -->
-    <form id="tb_form" method="post">
-	<div id="dlg_ins" class="easyui-dialog" title="글쓰기 화면"
-		data-options="iconCls:'icon-save'"
-		style="width: 700px; height: fit-content; padding: 10px">
+	<div id="dlg_ins" class="easyui-dialog" title="글쓰기 화면" data-options="iconCls:'icon-save'" style="width: 700px; height: fit-content; padding: 10px">
+    <form id="tb_form" action="./boardInsert.sp4" target="_self" method="post">
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" name="bm_email" label="작성자명:" labelPosition="top" style="width:100%;">
+            <input class="easyui-textbox" name="bm_title" label="글제목:" labelPosition="top" style="width:100%;">
+        </div>
+        <div style="margin-bottom:20px">
+            <input class="easyui-textbox" name="bm_writer" label="작성자명:" labelPosition="top" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
             <input class="easyui-textbox" name="bm_email" label="이메일:" labelPosition="top" data-options="prompt:'Enter a email address...',validType:'email'" style="width:100%;">
@@ -95,10 +102,11 @@
             <input class="easyui-passwordbox" name="bm_pw" prompt="Password" iconWidth="28" label="비밀번호 입력:" labelPosition="top" style="width:100%;">
         </div>
         <div>
-            <a href="./getBoardList.sp4" class="easyui-linkbutton" iconCls="icon-add" style="width:100%;height:32px">Register</a>
+<!--             <a href="./boardInsert.sp4" class="easyui-linkbutton" iconCls="icon-add" style="width:100%;height:32px">Register</a> -->
+            <input type="submit" value="submit" style="width:100%; height:32px"/>
     	</div>
-	</div>
 	</form>
+	</div>
 	
 	<!-- -------------------------------------[[ 글쓰기 화면 끝 ]]--------------------------------------------- -->
 </body>

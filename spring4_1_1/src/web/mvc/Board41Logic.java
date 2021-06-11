@@ -23,6 +23,7 @@ public class Board41Logic {
 		logger.info("boardInsert 호출 성공");
 		int result = 0;
 		int fileOk = 0;
+		logger.info("#########################"+pmap);
 		result = bmDao.boardMInsert(pmap);
 		// 첨부파일이 있어?
 		if(pmap.containsKey("bs_file")) {

@@ -78,6 +78,7 @@ public class Board41Controller extends MultiActionController {
 	{
 		logger.info("boardInsert 호출 성공");
 		HashMapBinder hmb = new HashMapBinder(req);
+		logger.info("============================> "+req);
 		Map<String, Object> pmap = new HashMap<>();
 		// 사용자가 입력한 값 또는 서버에서 클라이언트에게 요청한 값을 넘김
 		hmb.bind(pmap);

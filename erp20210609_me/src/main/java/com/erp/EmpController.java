@@ -15,7 +15,9 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 
+// 넥사크로를 사용하지 않고 순수하게 표준 스크립트로 처리하는 경우임.
 public class EmpController implements Controller {
+	
 	String requestName = null;
 	EmpLogic empLogic = null;
 	Logger logger = Logger.getLogger(EmpController.class);
@@ -34,7 +36,11 @@ public class EmpController implements Controller {
 		int result = 0;
 		Map<String,Object> pMap = null;
 		HttpSession session = req.getSession();
-		if("login".equals(requestName)) {
+		if("empXML".equals(requestName)) {
+			logger.info("emp조회 결과를 xml포맷으로 내보내기");
+			
+		}
+		else if("login".equals(requestName)) {
 			logger.info("EmpController => 로그인 호출");
 			/////////////////////// 실제 코드    /////////////////////
 			Map<String,Object> loginMap= HashMapBuilder.hashMapBuilder(req.getParameterMap());
